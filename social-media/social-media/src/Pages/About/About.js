@@ -12,7 +12,7 @@ const About = () => {
       </h2>
       <p>
         Criação de um projeto feito em React, que consiste em fazer uma rede
-        social, onde os usuários podem publicar e editar as suas publicações,
+        social, onde os utilizadores podem publicar e editar as suas publicações,
         com um sistema de Login e Registo, onde utilizei a Firebase como base de
         dados no back-end. É um projeto bastante completo, e pude praticar
         vários componentes do React.
