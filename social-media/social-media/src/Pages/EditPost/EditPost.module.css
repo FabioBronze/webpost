@@ -1,19 +1,21 @@
 .edit_post {
+  padding-top: 100px;
   text-align: center;
 }
 
 .edit_post h2 {
-  font-size: 2.2em;
+  font-size: 2em;
 }
 
 .edit_post p {
   color: #aaa;
-  margin-bottom: 4em;
+  margin-bottom: 2em;
 }
 
 .edit_post .preview_title {
-  margin-bottom: 0.2em;
-  color: #000;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+  color: white;
   font-weight: bold;
 }
 
