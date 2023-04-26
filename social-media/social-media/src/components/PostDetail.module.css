@@ -5,6 +5,8 @@
 
 .post_detail img {
   max-width: 600px;
+  display: block;
+  margin: 0 auto;
 }
 
 .post_detail h2 {
@@ -34,4 +36,15 @@
 
 .read_link {
   margin-bottom: 1em;
+}
+
+@media (max-width: 768px) {
+  .post_detail img {
+    width: 290px;
+    margin-bottom: 1em;
+  }
+
+  .post_detail {
+   margin: 1em;
+  }
 }
