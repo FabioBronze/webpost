@@ -32,7 +32,7 @@ const CreatePost = () => {
     try {
       new URL(image);
     } catch (error) {
-      setFormError("A imagem precisa ser uma URL.");
+      setFormError("The image needs to be URL.");
     }
 
     // Criar o Array de Tags
@@ -40,7 +40,7 @@ const CreatePost = () => {
 
     // Verifica Todos os Valores
     if (!title || !image || !body || !tags) {
-      setFormError("Por favor, preencha todos os campos.");
+      setFormError("Please, fill in all fields.");
     }
 
     if (formError) return;
@@ -53,63 +53,61 @@ const CreatePost = () => {
       uid: user.uid,
       createdBy: user.displayName,
     });
-
-    // Redirecionar para a Home Page
     navigate("/");
   };
 
   return (
     <div className={styles.create_post}>
-      <h2>Criar Post</h2>
-      <p>Escreva sobre o que quiser e compartilhe o seu conhecimento.</p>
+      <h2>Create Post</h2>
+      <p>Write and Shate what you want!</p>
       <form onSubmit={handleSubmit}>
         <label>
-          <span>Título:</span>
+          <span>Title</span>
           <input
             type="text"
             name="title"
             required
-            placeholder="Escreva o seu Título"
+            placeholder="Think about your title"
             onChange={(e) => setTitle(e.target.value)}
             value={title}
           />
         </label>
         <label>
-          <span>URL da Imagem:</span>
+          <span>Image</span>
           <input
             type="text"
             name="image"
             required
-            placeholder="Insira uma Imagem"
+            placeholder="Put an image you want"
             onChange={(e) => setImage(e.target.value)}
             value={image}
           />
         </label>
         <label>
-          <span>Conteúdo:</span>
+          <span>Content</span>
           <textarea
             name="body"
             required
-            placeholder="Insira o Conteudo do Post"
+            placeholder="Enter post content"
             onChange={(e) => setBody(e.target.value)}
             value={body}
           ></textarea>
         </label>
         <label>
-          <span>Tags:</span>
+          <span>Tags</span>
           <input
             type="text"
             name="tags"
             required
-            placeholder="Insira as tags separadas por virgula"
+            placeholder="Enter the tags separated by commas"
             onChange={(e) => setTags(e.target.value)}
             value={tags}
           />
         </label>
-        {!response.loading && <button className="btn">Criar</button>}
+        {!response.loading && <button className="btn">Create Post</button>}
         {response.loading && (
           <button className="btn" disabled>
-            Aguarde...
+            Loading...
           </button>
         )}
         {response.error && <p className="error">{response.error}</p>}
