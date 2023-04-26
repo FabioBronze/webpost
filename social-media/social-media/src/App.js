@@ -1,9 +1,20 @@
+// CSS
 import "./App.css";
+
+// React Router
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+// Firebase
 import { onAuthStateChanged } from "firebase/auth";
+
+// Context
 import { AuthProvider } from "./context/AuthContext";
+
+// Components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+
+// Pages
 import About from "./Pages/About/About";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
@@ -11,15 +22,16 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import CreatePost from "./Pages/CreatePost/CreatePost";
 import Home from "./Pages/Home/Home";
 import Search from "./Pages/Search/Search";
+import Post from "./Pages/Post/Post";
+
+// Hooks
 import { useState, useEffect } from "react";
 import { useAuthentication } from "./hooks/useAuthentication";
-import Post from "./Pages/Post/Post";
 
 function App() {
   const [blackHeader, setBlackHeader] = useState(false);
 
   useEffect(() => {
-    // Navbar
     const scrollListener = () => {
       if (window.scrollY > 10) {
         setBlackHeader(true);
@@ -33,7 +45,6 @@ function App() {
     };
   }, []);
 
-  // Loading
   const [user, setUser] = useState(undefined);
   const { auth } = useAuthentication();
   const loadingUser = user === undefined;
