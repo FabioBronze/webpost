@@ -23,6 +23,7 @@ import CreatePost from "./Pages/CreatePost/CreatePost";
 import Home from "./Pages/Home/Home";
 import Search from "./Pages/Search/Search";
 import Post from "./Pages/Post/Post";
+import EditPost from "./Pages/EditPost/EditPost";
 
 // Hooks
 import { useState, useEffect } from "react";
@@ -75,6 +76,10 @@ function App() {
               <Route
                 path="/register"
                 element={!user ? <Register /> : <Navigate to="/" />}
+              />
+              <Route
+                path="/posts/edit/:id"
+                element={user ? <EditPost /> : <Navigate to="/login" />}
               />
               <Route
                 path="/posts/create"
