@@ -39,7 +39,7 @@ const EditPost = () => {
     try {
       new URL(image);
     } catch (error) {
-      setFormError("A imagem precisa ser uma URL.");
+      setFormError("The image needs to be URL.");
     }
     const tagsArray = tags.split(",").map((tag) => tag.trim());
     const data = {
