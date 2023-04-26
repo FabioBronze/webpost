@@ -41,18 +41,15 @@ export const useAuthentication = () => {
     } catch (error) {
       console.log(error.message);
       console.log(typeof error.message);
-
-      let systemErrorMessage;
-      if (error.message.includes("Password")) {
-        systemErrorMessage =
-          "A Palavra-Passe precisa conter pelo menos 6 caracteres.";
-      } else if (error.message.includes("email-already")) {
-        systemErrorMessage = "E-Mail já Validado.";
-      } else {
-        systemErrorMessage = "Ocorreu um erro, por favor tente mais tarde.";
-      }
-      setLoading(false);
+      const errorMessages = {
+        "auth/weak-password": "Password must be at least 6 characters long",
+        "auth/email-already-in-use": "E-mail already registered",
+      };
+      const systemErrorMessage =
+        errorMessages[error.code] ||
+        "An error occurred, please try again later";
       setError(systemErrorMessage);
+      setLoading(false);
     }
   };
 
@@ -72,11 +69,12 @@ export const useAuthentication = () => {
     } catch (error) {
       let systemErrorMessage;
       if (error.message.includes("user-not-found")) {
-        systemErrorMessage = "Utilizador não Existente!";
+        systemErrorMessage =
+          "User not found. Please check your email or sign up for an account.";
       } else if (error.message.includes("wrong-password")) {
-        systemErrorMessage = "Palavra-Passe Incorreta";
+        systemErrorMessage = "Wrong password. please try again.";
       } else {
-        systemErrorMessage = "Ocorreu um erro, por favor tenta mais tarde!";
+        systemErrorMessage = "An error occurred, please try again later";
       }
       setLoading(false);
       setError(systemErrorMessage);
