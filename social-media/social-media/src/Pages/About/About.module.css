@@ -22,3 +22,9 @@
   margin-top: 15px;
   padding: 10px 15px;
 }
+
+@media (max-width: 768px) { 
+  .about p {
+    margin: 0 1em;
+  }
+}

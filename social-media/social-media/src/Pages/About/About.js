@@ -7,18 +7,15 @@ import { Link } from "react-router-dom";
 const About = () => {
   return (
     <div className={styles.about}>
-      <h2>
-        Sobre a Social <span>Media</span>
-      </h2>
+      <h2>About WebPost</h2>
       <p>
-        Criação de um projeto feito em React, que consiste em fazer uma rede
-        social, onde os utilizadores podem publicar e editar as suas
-        publicações, com um sistema de Login e Registo, onde utilizei a Firebase
-        como base de dados no back-end. É um projeto bastante completo, e pude
-        praticar vários componentes do React.
+        Personal project, with the objective of simulating a blog, with several
+        functions for the user to publish, edit or delete photos. all photos
+        have a description for the user to write. Made in React and Firebase,
+        this is a Full-Stack Project.
       </p>
       <Link to="/posts/create" className="btn">
-        Criar Postagem
+        Create Post
       </Link>
     </div>
   );
