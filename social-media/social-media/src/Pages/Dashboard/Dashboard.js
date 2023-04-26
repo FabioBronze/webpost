@@ -21,18 +21,18 @@ const Dashboard = () => {
   return (
     <div className={styles.dashboard}>
       <h2>Dashboard</h2>
-      <p>Gerencie os seus posts</p>
+      <p>Manage your posts!</p>
       {posts && posts.length === 0 ? (
         <div className={styles.noposts}>
-          <p>Não foram encontrados posts</p>
+          <p>No posts found...</p>
           <Link to="/posts/create" className="btn">
-            Criar primeiro post
+            Create first post
           </Link>
         </div>
       ) : (
         <div className={styles.post_header}>
-          <span>Título</span>
-          <span>Ações</span>
+          <span>Title</span>
+          <span>Action</span>
         </div>
       )}
       {posts &&
@@ -41,16 +41,16 @@ const Dashboard = () => {
             <p>{post.title}</p>
             <div className={styles.actions}>
               <Link to={`/posts/${post.id}`} className={styles.btn_dash}>
-                Ver
+                Open
               </Link>
               <Link to={`/posts/edit/${post.id}`} className={styles.btn_dash}>
-                Editar
+                Edit
               </Link>
               <button
                 onClick={() => deleteDocument(post.id)}
                 className={styles.btn_dashh}
               >
-                Excluir
+                Delete
               </button>
             </div>
           </div>
