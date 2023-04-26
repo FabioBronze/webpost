@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+// Firebase
 import { db } from "../firebase/config";
 import {
   collection,
@@ -8,12 +8,13 @@ import {
   where,
 } from "firebase/firestore";
 
+// Hooks
+import { useState, useEffect } from "react";
+
 export const useFetchDocuments = (docCollection, search = null, uid = null) => {
   const [documents, setDocuments] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
-
-  // Evita Memory Leak
   const [cancelled, setCancelled] = useState(false);
 
   useEffect(() => {
