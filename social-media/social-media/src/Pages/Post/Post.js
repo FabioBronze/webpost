@@ -13,15 +13,15 @@ const Post = () => {
 
   return (
     <div className={styles.post_container}>
-      {loading && <p>Carregando Postagem...</p>}
+      {loading && <p>Loading post...</p>}
       {post && (
         <div className={styles.container}>
           <h1>{post.title}</h1>
           <img src={post.image} alt={post.title} />
           <h2>{post.title}</h2>
-          <p className={styles.createdBy}>Criado por: {post.createdBy}</p>
+          <p className={styles.createdBy}>Created by: {post.createdBy}</p>
           <p>{post.body}</p>
-          <h3>Esta postagem fala sobre:</h3>
+          <h3>This post is about:</h3>
           <div className={styles.tags}>
             {post.tagsArray.map((tag) => (
               <p key={tag}>
@@ -32,7 +32,7 @@ const Post = () => {
           </div>
         </div>
       )}
-      {error && <p>Ocorreu um erro ao procurar a sua postagem.</p>}
+      {error && <p>An error occurred while searching for the post.</p>}
     </div>
   );
 };
