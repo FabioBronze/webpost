@@ -14,14 +14,16 @@ const PostDetail = ({ post }) => {
       <div className={styles.tags}>
         {post.tagsArray.map((tag) => (
           <p key={tag}>
-            <span>#</span>
+            <span># </span>
             {tag}
           </p>
         ))}
       </div>
-      <Link to={`/posts/${post.id}`} className="btn btn-outline">
-        Ler
-      </Link>
+      <div className={styles.read_link}>
+        <Link to={`/posts/${post.id}`} className="btn btn-outline">
+          Ler
+        </Link>
+      </div>
     </div>
   );
 };

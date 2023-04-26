@@ -1,5 +1,6 @@
 .post_detail {
   margin-bottom: 2em;
+  border-bottom: 1px solid #aaa;
 }
 
 .post_detail img {
@@ -10,8 +11,8 @@
   margin-bottom: 0.4em;
 }
 
-.post_detail .tags {
-  margin-bottom: 1.2em;
+.tags {
+  margin-bottom: 1em;
   display: flex;
 }
 
@@ -20,30 +21,17 @@
 }
 
 .tags span {
-  font-weight: bold;
+  font-weight: 700;
+  color: rgba(204, 204, 204, 0.658);
 }
 
 .createdby {
   font-style: italic;
-  color: #444;
+  color: #adadad;
   font-size: 0.8em;
   margin-bottom: 1em;
 }
 
-@media screen and (max-width: 1024px) {
-  .post_detail img {
-    max-width: 500px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .post_detail {
-    max-width: 300px;
-  }
-
-  .post_detail img {
-    max-width: 300px;
-    display: block;
-    margin: 0 auto;
-  }
+.read_link {
+  margin-bottom: 1em;
 }

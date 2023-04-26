@@ -1,56 +1,56 @@
-// CSS
 import "./App.css";
-
-// FireBase
-import { onAuthStateChanged } from "firebase/auth"; // Verifica se a autenticação do usuario foi feita com sucesso.
-
-// Hooks
-import { useState, useEffect } from "react";
-import { useAuthentication } from "./hooks/useAuthentication";
-
-// React Router Dom
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
-// Context
+import { onAuthStateChanged } from "firebase/auth";
 import { AuthProvider } from "./context/AuthContext";
-
-// Pages
-import Home from "./Pages/Home/Home";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import About from "./Pages/About/About";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
-import CreatePost from "./Pages/CreatePost/CreatePost";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import CreatePost from "./Pages/CreatePost/CreatePost";
+import Home from "./Pages/Home/Home";
 import Search from "./Pages/Search/Search";
+import { useState, useEffect } from "react";
+import { useAuthentication } from "./hooks/useAuthentication";
 import Post from "./Pages/Post/Post";
-import EditPost from "./Pages/EditPost/EditPost";
-
-// Components
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 
 function App() {
+  const [blackHeader, setBlackHeader] = useState(false);
+
+  useEffect(() => {
+    // Navbar
+    const scrollListener = () => {
+      if (window.scrollY > 10) {
+        setBlackHeader(true);
+      } else {
+        setBlackHeader(false);
+      }
+    };
+    window.addEventListener("scroll", scrollListener);
+    return () => {
+      window.removeEventListener("scroll", scrollListener);
+    };
+  }, []);
+
+  // Loading
   const [user, setUser] = useState(undefined);
   const { auth } = useAuthentication();
-
-  const loadingUser = user === undefined; // Compara o usuario com undefined, se for undefined, quer dizer que está a carregar de qualquer forma.
-
+  const loadingUser = user === undefined;
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       setUser(user);
     });
   }, [auth]);
-
   if (loadingUser) {
-    return <p>Carregando...</p>;
+    return <p>Loading...</p>;
   }
 
   return (
     <div className="App">
       <AuthProvider value={{ user }}>
-        {/*Assim o user fica de forma global e podemos utilizar onde quisermos*/}
         <BrowserRouter>
-          <Navbar />
+          <Navbar black={blackHeader} />
           <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -64,10 +64,6 @@ function App() {
               <Route
                 path="/register"
                 element={!user ? <Register /> : <Navigate to="/" />}
-              />
-              <Route
-                path="/posts/edit/:id"
-                element={user ? <EditPost /> : <Navigate to="/login" />}
               />
               <Route
                 path="/posts/create"

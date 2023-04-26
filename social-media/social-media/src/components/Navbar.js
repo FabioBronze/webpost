@@ -1,88 +1,112 @@
-// CSS
-import styles from "./Navbar.module.css";
-
-// Hooks
-import { useAuthentication } from "../hooks/useAuthentication";
-
-// Context
-import { useAuthValue } from "../context/AuthContext";
-
-// React Router
+import { useState } from "react";
+import { FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+import styles from "./Navbar.module.css";
+import { useAuthentication } from "../hooks/useAuthentication";
+import { useAuthValue } from "../context/AuthContext";
+
+const Navbar = ({ black }) => {
   const { user } = useAuthValue();
   const { logout } = useAuthentication();
 
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+
+  const menuItems = [
+    {
+      label: "Home",
+      to: "/",
+    },
+    {
+      label: "About",
+      to: "/about",
+    },
+  ];
+
+  const authItems = [
+    {
+      label: "Login",
+      to: "/login",
+    },
+    {
+      label: "Register",
+      to: "/register",
+    },
+  ];
+
+  const userItems = [
+    {
+      label: "New Post",
+      to: "/posts/create",
+    },
+    {
+      label: "Dashboard",
+      to: "/dashboard",
+    },
+  ];
+
   return (
-    <nav className={styles.navbar}>
-      <NavLink to="/" className={styles.brand}>
-        Social <span>Media</span>
-      </NavLink>
-      <ul className={styles.links_list}>
-        <li>
-          <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? styles.active : "")}
-          >
-            Início
-          </NavLink>
-        </li>
-        {!user && (
-          <>
-            <li>
+    <header className={black ? styles.header_black : ""}>
+      <nav className={styles.navbar}>
+        <NavLink to="/" className={styles.brand}>
+          Web<span>Post</span>
+        </NavLink>
+        <div className={styles.menu_icon} onClick={handleOpen}>
+          <FaBars />
+        </div>
+        <ul className={`${styles.links_list} ${open ? styles.open : ""}`}>
+          {menuItems.map((item) => (
+            <li key={item.label}>
               <NavLink
-                to="/login"
-                className={({ isActive }) => (isActive ? styles.active : "")}
+                to={item.to}
+                className={styles.link}
+                activeclassname={styles.active}
+                onClick={handleOpen}
               >
-                Entrar
+                {item.label}
               </NavLink>
             </li>
+          ))}
+          {!user &&
+            authItems.map((item) => (
+              <li key={item.label}>
+                <NavLink
+                  to={item.to}
+                  className={styles.link}
+                  activeclassname={styles.active}
+                  onClick={handleOpen}
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
+          {user &&
+            userItems.map((item) => (
+              <li key={item.label}>
+                <NavLink
+                  to={item.to}
+                  className={styles.link}
+                  activeclassname={styles.active}
+                  onClick={handleOpen}
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
+          {user && (
             <li>
-              <NavLink
-                to="/register"
-                className={({ isActive }) => (isActive ? styles.active : "")}
-              >
-                Registar
-              </NavLink>
+              <button className={styles.btn_logout} onClick={logout}>
+                Logout
+              </button>
             </li>
-          </>
-        )}
-        {user && (
-          <>
-            <li>
-              <NavLink
-                to="/posts/create"
-                className={({ isActive }) => (isActive ? styles.active : "")}
-              >
-                Novo
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/dashboard"
-                className={({ isActive }) => (isActive ? styles.active : "")}
-              >
-                Dashboard
-              </NavLink>
-            </li>
-          </>
-        )}
-        <li>
-          <NavLink
-            to="/about"
-            className={({ isActive }) => (isActive ? styles.active : "")}
-          >
-            Sobre
-          </NavLink>
-        </li>
-        {user && (
-          <li>
-            <button onClick={logout}>Sair</button>
-          </li>
-        )}
-      </ul>
-    </nav>
+          )}
+        </ul>
+      </nav>
+    </header>
   );
 };
 

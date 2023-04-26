@@ -1,8 +1,15 @@
 .about {
-  text-align: center;
+  padding-top: 100px;
+  text-align: justify;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   align-items: center;
+}
+
+.about h2 {
+  margin-bottom: 2em;
 }
 
 .about p {
@@ -14,12 +21,4 @@
   display: block;
   margin-top: 15px;
   padding: 10px 15px;
-}
-
-@media screen and (max-width: 1024px) {
-  .about p {
-    font-size: 1.2em;
-    text-align: justify;
-    padding: 0px 30px;
-  }
 }

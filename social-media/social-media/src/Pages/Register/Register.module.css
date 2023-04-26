@@ -1,22 +1,9 @@
 .register {
+  padding-top: 100px;
   text-align: center;
 }
 
 .register p {
   color: #aaa;
-  margin-bottom: 4em;
-}
-
-@media screen and (max-width: 600px) {
-.register {
-  padding: 10px;
-}
-
-  label {
-    font-size: 1em
-  }
-
-  input {
-    font-size: .9em;
-  }
+  padding: 1em 0;
 }
