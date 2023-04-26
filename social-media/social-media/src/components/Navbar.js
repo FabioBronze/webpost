@@ -1,9 +1,17 @@
+// CSS
+import styles from "./Navbar.module.css";
+
+// Hooks
 import { useState } from "react";
+import { useAuthentication } from "../hooks/useAuthentication";
+
+// React Icons
 import { FaBars } from "react-icons/fa";
+
+// React Router
 import { NavLink } from "react-router-dom";
 
-import styles from "./Navbar.module.css";
-import { useAuthentication } from "../hooks/useAuthentication";
+// Context
 import { useAuthValue } from "../context/AuthContext";
 
 const Navbar = ({ black }) => {
