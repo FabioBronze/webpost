@@ -55,27 +55,27 @@ const EditPost = () => {
     <div className={styles.edit_post}>
       {post && (
         <>
-          <h2>A editar: {post.title}</h2>
-          <p>Altere os dados da postagem como desejar</p>
+          <h2>To edit: {post.title}</h2>
+          <p>Change the post data as you wish</p>
           <form onSubmit={handleSubmit}>
             <label>
-              <span>Título:</span>
+              <span>Title</span>
               <input
                 type="text"
                 name="text"
                 required
-                placeholder="Pense num bom título..."
+                placeholder="Think about your title"
                 onChange={(e) => setTitle(e.target.value)}
                 value={title}
               />
             </label>
             <label>
-              <span>URL da imagem:</span>
+              <span>Image URL</span>
               <input
                 type="text"
                 name="image"
                 required
-                placeholder="Insira uma imagem que representa seu post"
+                placeholder="Put an image you want"
                 onChange={(e) => setImage(e.target.value)}
                 value={image}
               />
@@ -87,30 +87,30 @@ const EditPost = () => {
               alt={post.title}
             />
             <label>
-              <span>Conteúdo:</span>
+              <span>Content</span>
               <textarea
                 name="body"
                 required
-                placeholder="Insira o conteúdo do post"
+                placeholder="Enter post content"
                 onChange={(e) => setBody(e.target.value)}
                 value={body}
               ></textarea>
             </label>
             <label>
-              <span>Tags:</span>
+              <span>Tags</span>
               <input
                 type="text"
                 name="tags"
                 required
-                placeholder="Insira as tags separadas por vírgula"
+                placeholder="Enter the tags separated by commas"
                 onChange={(e) => setTags(e.target.value)}
                 value={tags}
               />
             </label>
-            {!response.loading && <button className="btn">Editar</button>}
+            {!response.loading && <button className="btn">Edit</button>}
             {response.loading && (
               <button className="btn" disabled>
-                Aguarde...
+                Loading...
               </button>
             )}
             {(response.error || formError) && (
