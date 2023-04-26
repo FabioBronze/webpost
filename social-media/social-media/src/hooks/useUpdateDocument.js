@@ -25,9 +25,8 @@ const updateReducer = (state, action) => {
 
 export const useUpdateDocument = (docCollection) => {
   const [response, dispatch] = useReducer(updateReducer, initialState);
-
-  // Evita memory Leak
   const [cancelled, setCancelled] = useState(false);
+
   const checkCancelBeforeDispatch = (action) => {
     if (!cancelled) {
       dispatch(action);
