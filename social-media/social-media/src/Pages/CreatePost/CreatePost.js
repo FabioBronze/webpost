@@ -28,17 +28,15 @@ const CreatePost = () => {
     e.preventDefault();
     setFormError("");
 
-    // Validar URL da Imagem
     try {
       new URL(image);
     } catch (error) {
       setFormError("The image needs to be URL.");
     }
 
-    // Criar o Array de Tags
-    const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
+    const tagsArray =
+      tags && tags.split(",").map((tag) => tag.trim().toLowerCase());
 
-    // Verifica Todos os Valores
     if (!title || !image || !body || !tags) {
       setFormError("Please, fill in all fields.");
     }
