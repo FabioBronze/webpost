@@ -123,3 +123,9 @@ button[disabled] {
   padding: 5px;
   border-radius: 5px;
 }
+
+@media (max-width: 768px) {
+  img {
+    max-width: 300px;
+  }
+}
