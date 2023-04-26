@@ -34,3 +34,9 @@
 .noposts a {
   padding: 10px 25px;
 }
+
+@media (max-width: 768px) {
+  .home h1 {
+    text-align: center;
+  }
+}
