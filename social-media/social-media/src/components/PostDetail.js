@@ -12,12 +12,13 @@ const PostDetail = ({ post }) => {
       <p className={styles.createdby}>Created by: {post.createdBy}</p>
       <p>{post.body}</p>
       <div className={styles.tags}>
-        {post.tagsArray.map((tag) => (
-          <p key={tag}>
-            <span># </span>
-            {tag}
-          </p>
-        ))}
+        {post.tagsArray &&
+          post.tagsArray.map((tag) => (
+            <p key={tag}>
+              <span># </span>
+              {tag}
+            </p>
+          ))}
       </div>
       <div className={styles.read_link}>
         <Link to={`/posts/${post.id}`} className="btn btn-outline">
