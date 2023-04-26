@@ -25,8 +25,6 @@ const deleteReducer = (state, action) => {
 
 export const useDeleteDocument = (docCollection) => {
   const [response, dispatch] = useReducer(deleteReducer, initialState);
-
-  // Evita Memory Leak
   const [cancelled, setCancelled] = useState(false);
 
   const checkCancelBeforeDispatch = (action) => {
@@ -37,7 +35,6 @@ export const useDeleteDocument = (docCollection) => {
 
   const deleteDocument = async (id) => {
     checkCancelBeforeDispatch({ type: "LOADING" });
-
     try {
       const deletedDocument = await deleteDoc(doc(db, docCollection, id));
       checkCancelBeforeDispatch({
@@ -49,7 +46,6 @@ export const useDeleteDocument = (docCollection) => {
     }
   };
 
-  // Evita Memory Leak
   useEffect(() => {
     return () => setCancelled(true);
   }, []);
