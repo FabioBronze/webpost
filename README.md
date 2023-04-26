@@ -12,9 +12,9 @@ Fábio Bronze
 Linkedin: https://www.linkedin.com/in/f%C3%A1bio-bronze/
 
 <h1/>Layout</h1>
-<img src="https://user-images.githubusercontent.com/116193280/224362970-b27c6d00-7d79-49be-a4dd-d15fffa50285.png" />
+<img src="https://user-images.githubusercontent.com/116193280/234453198-c82c5c37-eb7a-4302-867f-2bb261762838.png" />
 <br/><br/>
-<img src="https://user-images.githubusercontent.com/116193280/224363524-0ca7c20d-8b75-4d60-adef-b2012eee71c6.png" />
+<img src="https://user-images.githubusercontent.com/116193280/234453545-b46d6210-819a-4344-a08b-c572902073c1.png" />
 <br/><br/>
-<img src="https://user-images.githubusercontent.com/116193280/224363744-83af27a3-2f3a-413c-8493-3cb2a13f85a6.png" />
+<img src="https://user-images.githubusercontent.com/116193280/234453572-d777d8d3-b19b-422e-87f9-b8866aa57054.png" />
 <br/><br/>
