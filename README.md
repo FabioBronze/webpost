@@ -1,4 +1,4 @@
-# Social Media
+# WebPost
  Projeto que simula um Blog, feito em Reactjs e base de dados implementada, onde os utilizadores podem publicar, editar e remover as publicações, com um sistema de Login e Registo, que contém as validações da base de dados.
 <h1/>Linguagens Utilizadas</h1>
 <li/>React</li>
