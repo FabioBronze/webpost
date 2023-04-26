@@ -25,7 +25,7 @@ const Register = () => {
     };
 
     if (password !== confirmPassword) {
-      setError("Palavra-Passe não correspondente!");
+      setError("Passwords do Not Match!");
       return;
     }
 
@@ -41,57 +41,57 @@ const Register = () => {
 
   return (
     <div className={styles.register}>
-      <h1>Crie uma conta para poder postar algo</h1>
-      <p>Crie o seu utilizador e partilhe as suas histórias!</p>
+      <h1>Register to Post</h1>
+      <p>Create your Account and Share What you Want!</p>
       <form onSubmit={handleSubmit}>
         <label>
-          <span>Nome:</span>
+          <span>Name:</span>
           <input
             type="text"
             name="displayName"
             required
-            placeholder="Nome do Utilizador"
+            placeholder="Username"
             value={displayName}
             onChange={(e) => setDisplayName(e.target.value)}
           />
         </label>
         <label>
-          <span>E-Mail:</span>
+          <span>E-Mail</span>
           <input
             type="email"
             name="email"
             required
-            placeholder="E-Mail do Utilizador"
+            placeholder="User E-Mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
         <label>
-          <span>Palavra-Passe:</span>
+          <span>Password</span>
           <input
             type="password"
             name="password"
             required
-            placeholder="Palavra-Passe"
+            placeholder="User Password"
             value={password}
             onChange={(e) => setpassword(e.target.value)}
           />
         </label>
         <label>
-          <span>Confirmação da Palavra-Passe</span>
+          <span>Confirm Password</span>
           <input
             type="password"
             name="confirmPassword"
             required
-            placeholder="Confirmar Palavra-Passe:"
+            placeholder="Confirm User Password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </label>
-        {!loading && <button className="btn">Registar</button>}
+        {!loading && <button className="btn">Register</button>}
         {loading && (
           <button className="btn" disabled>
-            Aguarde...
+            Loading...
           </button>
         )}
         {error && <p className="error">{error}</p>}
